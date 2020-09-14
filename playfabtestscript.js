@@ -89,7 +89,7 @@ handlers.makeEntityAPICall = function (args, context) {
             {
                 ObjectName: "obj1",
                 DataObject: {
-                    foo: "some server computed value",
+                    foo: "some fantastic server computed value",
                     prop1: args.prop1
                 }
             }

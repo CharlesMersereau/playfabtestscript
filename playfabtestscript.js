@@ -38,7 +38,7 @@ handlers.helloWorld = function (args, context) {
 
     // The pre-defined "currentPlayerId" variable is initialized to the PlayFab ID of the player logged-in on the game client.
     // Cloud Script handles authenticating the player automatically.
-    var message = "Hello " + currentPlayerId + "!";
+    var message = "Hello " + currentPlayerId + "!!!";
 
     // You can use the "log" object to write out debugging statements. It has
     // three functions corresponding to logging level: debug, info, and error. These functions
@@ -89,7 +89,7 @@ handlers.makeEntityAPICall = function (args, context) {
             {
                 ObjectName: "obj1",
                 DataObject: {
-                    foo: "some server computed value",
+                    foo: "some fantastic server computed value",
                     prop1: args.prop1
                 }
             }

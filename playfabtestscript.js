@@ -333,7 +333,7 @@ handlers.GetPokemon = function args(args) {
 
     if (pokemonName != null) {
 
-        for ( var i = 0; i < 10; i++) {
+        for ( var i = 0; i < 100; i++) {
             try {
                 responseString = http.request(
                     `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,

@@ -332,17 +332,21 @@ handlers.GetPokemon = function args(args) {
     var responseString = "";
 
     if (pokemonName != null) {
-        try {
-            responseString = http.request(
-                `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
-                "get",
-                null,
-                "application/json",
-                {}
-            );
-        } catch {
-            log.debug(`Something went wrong tryng to retrieve data from the poke api https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+
+        for ( var i = 0; i < 10; i++) {
+            try {
+                responseString = http.request(
+                    `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
+                    "get",
+                    null,
+                    "application/json",
+                    {}
+                );
+            } catch {
+                log.debug(`Something went wrong tryng to retrieve data from the poke api https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+            }
         }
+        
         
     } else {
         log.debug(`Parameters to make call to poke api are not valid: ${pokemonName}`);

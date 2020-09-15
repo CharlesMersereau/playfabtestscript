@@ -357,5 +357,5 @@ handlers.GetPokemon = function args(args) {
 
     log.debug(`Successful call made to poke api to retrieve data for ${pokemonName}`);
     
-    return responseString
+    return parsedData;
 }

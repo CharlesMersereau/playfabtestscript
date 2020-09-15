@@ -329,10 +329,11 @@ handlers.MyFirstEventHandler = function (args) {
 handlers.GetPokemon = function args(args) {
     var pokemonName = null;
     if (args && args.pokemonName) pokemonName = args.pokemonName; 
+    var responseString = "";
 
     if (pokemonName != null) {
         try {
-            var responseString = http.request(
+            responseString = http.request(
                 `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
                 "get",
                 null,
@@ -348,7 +349,7 @@ handlers.GetPokemon = function args(args) {
         throw Error("InvalidParameters");
     }
 
-    var parsedData = JSON.parse(tokenResponse);
+    var parsedData = JSON.parse(responseString);
     if (parsedData == "Not Found") {
         log.debug(`Pokemon was not found: ${pokemonName}`);
         throw Error("InvalidParameters");

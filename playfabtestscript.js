@@ -318,3 +318,9 @@ handlers.RoomEventRaised = function (args) {
             break;
     }
 };
+
+
+handlers.MyFirstEventHandler = function (args) {
+    var message = "Congrats! You reading this message means our first event handler worked!";
+    return { messageValue: message };
+};

@@ -319,8 +319,33 @@ handlers.RoomEventRaised = function (args) {
     }
 };
 
-
+// My first event handler to test functionality
 handlers.MyFirstEventHandler = function (args) {
     var message = "Congrats! You reading this message means our first event handler worked!";
     return { messageValue: message };
 };
+
+// Let's have some fun and retrieve information from the poke api
+handlers.GetPokemon = function args(args) {
+    var pokemonName = null;
+    if (args && args.pokemonName) pokemonName = args.pokemonName; 
+
+    if (pokemonName != null) {
+        var responseString = http.request(
+            `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
+            "get",
+            null,
+            "application/json",
+            {}
+        );
+    } else {
+        throw Error("InvalidParameters")
+    }
+
+    var parsedData = JSON.parse(tokenResponse);
+    if (parsedData == "Not Found") {
+        throw Error("InvalidParameters")
+    }
+    
+    return responseString
+}
